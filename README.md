@@ -2,7 +2,7 @@
 
 This project is a compiler that reads in a sample PL/0 program, parses through it creating abstract syntax trees (ASTs), and generates 3-letter assembly mnemonic instructions based on those ASTs. The rule behind creating tokens that comprise the ASTs is the following context-free grammar, lexical grammar, and abstract syntax:
 
-⟨program⟩ ::= ⟨block⟩ . \n
+```⟨program⟩ ::= ⟨block⟩ . 
 ⟨block⟩ ::= ⟨const-decls⟩ ⟨var-decls⟩ ⟨proc-decls⟩ ⟨stmt⟩
 ⟨const-decls⟩ ::= {⟨const-decl⟩}
 ⟨const-decl⟩ ::= const ⟨const-def⟩ {⟨comma-const-def⟩} ;
@@ -39,4 +39,4 @@ This project is a compiler that reads in a sample PL/0 program, parses through i
 ⟨mult-div-factor⟩ ::= ⟨mult-div⟩ ⟨factor⟩
 ⟨mult-div⟩ ::= ⟨mult⟩ | ⟨div⟩
 ⟨factor⟩ ::= ⟨ident⟩ | ⟨sign⟩ ⟨number⟩ | ( ⟨expr⟩ )
-⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩
+⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩```
