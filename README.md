@@ -39,4 +39,49 @@ This project is a compiler that reads in a sample PL/0 program, parses through i
 ⟨mult-div-factor⟩ ::= ⟨mult-div⟩ ⟨factor⟩
 ⟨mult-div⟩ ::= ⟨mult⟩ | ⟨div⟩
 ⟨factor⟩ ::= ⟨ident⟩ | ⟨sign⟩ ⟨number⟩ | ( ⟨expr⟩ )
-⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩```
+⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩
+
+```⟨ident⟩ ::= ⟨letter⟩ {⟨letter-or-digit⟩}
+⟨letter⟩ ::= a | b | . . . | y | z | A | B | . . . | Y | Z
+⟨number⟩ ::= ⟨digit⟩ {⟨digit⟩}
+⟨digit⟩ ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+⟨letter-or-digit⟩ ::= ⟨letter⟩ | ⟨digit⟩
+⟨plus⟩ ::= +
+⟨minus⟩ ::= -
+⟨mult⟩ ::= *
+⟨div⟩ ::= /
+⟨ignored⟩ ::= ⟨blank⟩ | ⟨tab⟩ | ⟨vt⟩ | ⟨formfeed⟩ | ⟨eol⟩ | ⟨comment⟩
+⟨blank⟩ ::= “A space character (ASCII 32)”
+⟨tab⟩ ::= “A horizontal tab character (ASCII 9)”
+⟨vt⟩ ::= “A vertical tab character (ASCII 11)”
+⟨formfeed⟩ ::= “A formfeed character (ASCII 12)”
+⟨newline⟩ ::= “A newline character (ASCII 10)”
+⟨cr⟩ ::= “A carriage return character (ASCII 13)”
+⟨eol⟩ ::= ⟨newline⟩ | ⟨cr⟩ ⟨newline⟩
+⟨comment⟩ ::= ⟨pound-sign⟩ {⟨non-nl⟩} ⟨newline⟩
+⟨pound-sign⟩ ::= #
+⟨non-nl⟩ ::= “Any character except a newline”
+
+```⟨program⟩ ::= {⟨const-decl⟩} {⟨var-decl⟩} {⟨proc-decl⟩} ⟨stmt⟩
+⟨const-decl⟩ ::= const ⟨name⟩ = ⟨number⟩
+⟨var-decl⟩ ::= var ⟨name⟩
+⟨proc-decl⟩ ::= procedure ⟨name⟩ ⟨program⟩
+⟨stmt⟩ ::= ⟨ident⟩ := ⟨expr⟩
+| call ⟨ident⟩
+| begin ⟨stmt⟩ {⟨stmt⟩}
+| if ⟨condition⟩ then ⟨stmt⟩ else ⟨stmt⟩
+| while ⟨condition⟩ do ⟨stmt⟩
+| read ⟨ident⟩
+| write ⟨expr⟩
+| skip
+⟨ident⟩ ::= ⟨name⟩ ⟨id-use⟩
+⟨id-use⟩ ::= ⟨attrs⟩ ⟨levelsOutward⟩
+⟨attrs⟩ ::= ⟨file-location⟩ ⟨kind⟩ ⟨loc-offset⟩ ⟨label⟩
+⟨kind⟩ ::= constant | variable | procedure
+⟨label⟩ ::= ⟨unset-label⟩ | ⟨set-label⟩
+⟨unset-label⟩ ::= unset-label false
+⟨set-label⟩ ::= set-label ⟨address⟩
+⟨condition⟩ ::= odd ⟨expr⟩ | ⟨expr⟩ ⟨rel-op⟩ ⟨expr⟩
+⟨rel-op⟩ ::= = | <> | < | <= | > | >=
+⟨expr⟩ ::= ⟨expr⟩ ⟨bin-arith-op⟩ ⟨expr⟩ | ⟨ident⟩ | ⟨number⟩
+⟨bin-arith-op⟩ ::= + | - | * | /
