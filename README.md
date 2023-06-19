@@ -41,7 +41,7 @@ Context-Free grammar:
     ⟨mult-div-factor⟩ ::= ⟨mult-div⟩ ⟨factor⟩
     ⟨mult-div⟩ ::= ⟨mult⟩ | ⟨div⟩
     ⟨factor⟩ ::= ⟨ident⟩ | ⟨sign⟩ ⟨number⟩ | ( ⟨expr⟩ )
-    ⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩
+    ⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩```
 
 <!-- -->
 
@@ -68,7 +68,7 @@ Lexical grammar:
     ⟨eol⟩ ::= ⟨newline⟩ | ⟨cr⟩ ⟨newline⟩
     ⟨comment⟩ ::= ⟨pound-sign⟩ {⟨non-nl⟩} ⟨newline⟩
     ⟨pound-sign⟩ ::= #
-    ⟨non-nl⟩ ::= “Any character except a newline”
+    ⟨non-nl⟩ ::= “Any character except a newline”```
 
 <!-- -->
 ---
