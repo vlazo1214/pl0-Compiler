@@ -41,6 +41,8 @@ This project is a compiler that reads in a sample PL/0 program, parses through i
 ⟨factor⟩ ::= ⟨ident⟩ | ⟨sign⟩ ⟨number⟩ | ( ⟨expr⟩ )
 ⟨sign⟩ ::= ⟨plus⟩ | ⟨minus⟩ | ⟨empty⟩```
 
+---
+
 ```⟨ident⟩ ::= ⟨letter⟩ {⟨letter-or-digit⟩}
 ⟨letter⟩ ::= a | b | . . . | y | z | A | B | . . . | Y | Z
 ⟨number⟩ ::= ⟨digit⟩ {⟨digit⟩}
@@ -60,9 +62,11 @@ This project is a compiler that reads in a sample PL/0 program, parses through i
 ⟨eol⟩ ::= ⟨newline⟩ | ⟨cr⟩ ⟨newline⟩
 ⟨comment⟩ ::= ⟨pound-sign⟩ {⟨non-nl⟩} ⟨newline⟩
 ⟨pound-sign⟩ ::= #
-⟨non-nl⟩ ::= “Any character except a newline”``
+⟨non-nl⟩ ::= “Any character except a newline”```
 
-``⟨program⟩ ::= {⟨const-decl⟩} {⟨var-decl⟩} {⟨proc-decl⟩} ⟨stmt⟩
+---
+
+```⟨program⟩ ::= {⟨const-decl⟩} {⟨var-decl⟩} {⟨proc-decl⟩} ⟨stmt⟩
 ⟨const-decl⟩ ::= const ⟨name⟩ = ⟨number⟩
 ⟨var-decl⟩ ::= var ⟨name⟩
 ⟨proc-decl⟩ ::= procedure ⟨name⟩ ⟨program⟩
